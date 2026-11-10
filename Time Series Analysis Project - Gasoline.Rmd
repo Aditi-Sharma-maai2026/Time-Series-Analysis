@@ -1146,7 +1146,7 @@ For comparison, the ETS(A,Ad,A) model also passed all diagnostic checks, returni
 fit_log <- train %>%
   model(
     sarima_log = ARIMA(log(Barrels) ~
-                         pdq(1, 1, 1) + PDQ(1, 1, 1, period = 12))
+                         pdq(1, 1, 1) + PDQ(0, 1, 1, period = 12))
   )
 
 report(fit_log)
@@ -1173,7 +1173,7 @@ train_post <- gasoline_monthly %>%
 fit_post <- train_post %>%
   model(
     sarima_post = ARIMA(Barrels ~
-                          pdq(1, 1, 1) + PDQ(1, 1, 1, period = 12))
+                          pdq(1, 1, 1) + PDQ(0, 1, 1, period = 12))
   )
 
 fc_post <- fit_post %>%
